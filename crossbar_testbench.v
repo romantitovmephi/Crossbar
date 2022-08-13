@@ -210,129 +210,129 @@ module crossbar_testbench();
 			
 		reset = 1;
 		repeat(1)
-			@(posedge clk);
+	          @(posedge clk);
 		reset = 0;
 	end
 
 	// GENERATE CLK
 		always begin
-			#5; 
-			clk = ~clk;
+		  #5; 
+		  clk = ~clk;
 		end  
 
- initial
-	 begin
-	@(negedge reset);
-  crossbar_transaction(1,0,32'hABCD_0001, 32'hABCD_0001); // M0 WRITE
-  crossbar_transaction(1,1,32'hABCD_0002, 32'hABCD_0002); // M1 WRITE
-  crossbar_transaction(1,2,32'hABCD_0003, 32'hABCD_0003); // M2 WRITE
-  crossbar_transaction(1,3,32'hABCD_0004, 32'hABCD_0004); // M3 WRITE
-  repeat(5)
-			@(posedge clk);
-  crossbar_transaction(0,0,32'hABCD_0001, 0); // M0 READ
-  crossbar_transaction(0,1,32'hABCD_0002, 0); // M1 READ
-  crossbar_transaction(0,2,32'hABCD_0003, 0); // M2 READ
-  crossbar_transaction(0,3,32'hABCD_0004, 0); // M3 READ
-    repeat(5)
-		  	@(posedge clk);
-  fork 
-		crossbar_transaction(1,0,32'hABCD_0101, 32'hABCD_0001); // M0 WRITE
-		crossbar_transaction(1,1,32'hABCD_0101, 32'hABCD_0002); // M1 WRITE
-		crossbar_transaction(1,2,32'hABCD_0101, 32'hABCD_0003); // M2 WRITE
-		crossbar_transaction(1,3,32'hABCD_0101, 32'hABCD_0004); // M3 WRITE
-  join 	
-  repeat(5)
-			@(posedge clk);
-  fork 
-	crossbar_transaction(0,0,32'hABCD_0101, 0); // M0 READ
-  crossbar_transaction(0,1,32'hABCD_0101, 0); // M1 READ
-  crossbar_transaction(0,2,32'hABCD_0101, 0); // M2 READ
-  crossbar_transaction(0,3,32'hABCD_0101, 0); // M3 READ
-  join 
-  repeat(5)
-			@(posedge clk);
-  fork 
-  crossbar_transaction(1,0,32'h4BCD_0001, 32'hABCD_0001); // M0 WRITE
-  crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0002); // M2 WRITE
-  join 
-  repeat(5)
-			@(posedge clk);
-  fork 
-  crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0001); // M2 WRITE
-  crossbar_transaction(1,1,32'h4BCD_0001, 32'hABCD_0002); // M1 WRITE
-  join 
-  repeat(5)
-			@(posedge clk);
-  fork 
-  crossbar_transaction(1,0,32'h4BCD_0001, 32'hABCD_0003); // M0 WRITE
-  crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0001); // M2 WRITE
-  crossbar_transaction(1,3,32'h4BCD_0001, 32'hABCD_0000); // M3 WRITE
-  join 
-end
+        initial
+	   begin
+	   @(negedge reset);
+           crossbar_transaction(1,0,32'hABCD_0001, 32'hABCD_0001); // M0 WRITE
+           crossbar_transaction(1,1,32'hABCD_0002, 32'hABCD_0002); // M1 WRITE
+           crossbar_transaction(1,2,32'hABCD_0003, 32'hABCD_0003); // M2 WRITE
+           crossbar_transaction(1,3,32'hABCD_0004, 32'hABCD_0004); // M3 WRITE
+           repeat(5)
+	     @(posedge clk);
+           crossbar_transaction(0,0,32'hABCD_0001, 0); // M0 READ
+           crossbar_transaction(0,1,32'hABCD_0002, 0); // M1 READ
+           crossbar_transaction(0,2,32'hABCD_0003, 0); // M2 READ
+           crossbar_transaction(0,3,32'hABCD_0004, 0); // M3 READ
+           repeat(5)
+	     @(posedge clk);
+           fork 
+	   crossbar_transaction(1,0,32'hABCD_0101, 32'hABCD_0001); // M0 WRITE
+	   crossbar_transaction(1,1,32'hABCD_0101, 32'hABCD_0002); // M1 WRITE
+	   crossbar_transaction(1,2,32'hABCD_0101, 32'hABCD_0003); // M2 WRITE
+	   crossbar_transaction(1,3,32'hABCD_0101, 32'hABCD_0004); // M3 WRITE
+           join 	
+           repeat(5)
+	     @(posedge clk);
+           fork 
+	   crossbar_transaction(0,0,32'hABCD_0101, 0); // M0 READ
+           crossbar_transaction(0,1,32'hABCD_0101, 0); // M1 READ
+           crossbar_transaction(0,2,32'hABCD_0101, 0); // M2 READ
+           crossbar_transaction(0,3,32'hABCD_0101, 0); // M3 READ
+           join 
+           repeat(5)
+	     @(posedge clk);
+           fork 
+           crossbar_transaction(1,0,32'h4BCD_0001, 32'hABCD_0001); // M0 WRITE
+           crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0002); // M2 WRITE
+           join 
+           repeat(5)
+	     @(posedge clk);
+           fork 
+           crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0001); // M2 WRITE
+           crossbar_transaction(1,1,32'h4BCD_0001, 32'hABCD_0002); // M1 WRITE
+           join 
+           repeat(5)
+	     @(posedge clk);
+           fork 
+           crossbar_transaction(1,0,32'h4BCD_0001, 32'hABCD_0003); // M0 WRITE
+           crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0001); // M2 WRITE
+           crossbar_transaction(1,3,32'h4BCD_0001, 32'hABCD_0000); // M3 WRITE
+           join 
+        end
 
-task automatic crossbar_transaction;  
-	input cmd;
-	input [1:0] channel_num;
-	input [31:0] addr, wdata;
-begin
-	@(posedge clk);
-	case(channel_num)
-		0:begin
-				master_0_req = 1;
-				master_0_cmd = cmd;
-				master_0_addr = addr;
-				master_0_wdata = wdata;
-				while(!master_0_ack)
-					@(posedge clk);
-				master_0_req = 0;
-				if(!cmd)
-					while(!master_0_resp)
-						@(posedge clk);
-		end
-		1:begin
-				master_1_req = 1;
-				master_1_cmd = cmd;
-				master_1_addr = addr;
-				master_1_wdata = wdata;
-				while(!master_1_ack)
-					@(posedge clk);
-				master_1_req = 0;
-				if(!cmd)
-					while(!master_1_resp)
-						@(posedge clk);
-		end
-		2:begin
-				master_2_req = 1;
-				master_2_cmd = cmd;
-				master_2_addr = addr;
-				master_2_wdata = wdata;
-				while(!master_2_ack)
-					@(posedge clk);
-				master_2_req = 0;
-				if(!cmd)
-					while(!master_2_resp)
-						@(posedge clk);
-		end
-		3:begin
-				master_3_req = 1;
-				master_3_cmd = cmd;
-				master_3_addr = addr;
-				master_3_wdata = wdata;
-				while(!master_3_ack)
-					@(posedge clk);
-				master_3_req = 0;
-				if(!cmd)
-					while(!master_3_resp)
-						@(posedge clk);
-		 end
-	endcase
-end
-endtask
+        task automatic crossbar_transaction;  
+	  input cmd;
+	  input [1:0] channel_num;
+	  input [31:0] addr, wdata;
+         begin
+	 @(posedge clk);
+	 case(channel_num)
+	  0:begin
+	        master_0_req = 1;
+	        master_0_cmd = cmd;
+	        master_0_addr = addr;
+		master_0_wdata = wdata;
+		while(!master_0_ack)
+		  @(posedge clk);
+		master_0_req = 0;
+		if(!cmd)
+		  while(!master_0_resp)
+		   @(posedge clk);
+	  end
+	  1:begin
+		master_1_req = 1;
+		master_1_cmd = cmd;
+		master_1_addr = addr;
+		master_1_wdata = wdata;
+		while(!master_1_ack)
+		  @(posedge clk);
+		master_1_req = 0;
+		if(!cmd)
+		  while(!master_1_resp)
+		   @(posedge clk);
+	  end
+	  2:begin
+		master_2_req = 1;
+		master_2_cmd = cmd;
+		master_2_addr = addr;
+		master_2_wdata = wdata;
+		while(!master_2_ack)
+		  @(posedge clk);
+		master_2_req = 0;
+		if(!cmd)
+		  while(!master_2_resp)
+		   @(posedge clk);
+	  end
+	  3:begin
+		master_3_req = 1;
+		master_3_cmd = cmd;
+		master_3_addr = addr;
+		master_3_wdata = wdata;
+		while(!master_3_ack)
+		  @(posedge clk);
+		master_3_req = 0;
+		if(!cmd)
+		  while(!master_3_resp)
+		   @(posedge clk);
+	 end
+	 endcase
+         end
+        endtask
 
-endmodule
+ endmodule
 
-// SLAVE RESPONSE EMULATION MODULE
-module slave (
+ // SLAVE RESPONSE EMULATION MODULE
+ module slave (
 	input clk,
 	input reset,
 	output reg ack,     
