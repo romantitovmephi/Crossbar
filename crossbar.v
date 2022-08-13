@@ -3,9 +3,9 @@ module crossbar (
 	input reset,                                     // RESET
 	
 	// MASTERS
-	input  master_0_req,				                     // REQUEST OF TRANSACTION
+	input  master_0_req,				 // REQUEST OF TRANSACTION
 	output master_0_ack,                             // ACKNOWLEDGMENT OF TRANSACTION
-	input  master_0_cmd,				                     // 0 - READ, 1 - WRITE (MASTER -> SLAVE)
+	input  master_0_cmd,				 // 0 - READ, 1 - WRITE (MASTER -> SLAVE)
 	output master_0_resp,                            // RDATA AVAILABLE SIGNAL
 	input  [31:0] master_0_addr,                     // ADDRESS
 	input  [31:0] master_0_wdata,                    // DATA TO WRITE
@@ -69,12 +69,12 @@ module crossbar (
 	output [31:0] slave_3_addr
 	);
 
-  // VECTORS
+        // VECTORS
 	wire [3:0] slave_resp = {slave_3_resp, slave_2_resp, slave_1_resp, slave_0_resp}; 
 	wire [3:0] slave_ack = {slave_3_ack, slave_2_ack, slave_1_ack, slave_0_ack};
 	wire [3:0] master;
 
-  // FOR REMEMBERING MASTER WHILE RESP WAITING
+        // FOR REMEMBERING MASTER WHILE RESP WAITING
 	reg  [3:0] master_read;	 
 
 	// ARBITERS
@@ -93,7 +93,7 @@ module crossbar (
 		.gnt3(master[3])
 	);   
 	
-  // MASTERS LOGIC
+        // MASTERS LOGIC
 	always @(posedge clk) begin
 		if (reset)
 			master_read <= 0;  
@@ -101,31 +101,31 @@ module crossbar (
 			master_read <= 0;
 		else if (master)
 			master_read <= (master[0] && !master_0_cmd) ? 4'b0001 :
-				             (master[1] && !master_1_cmd) ? 4'b0010 :
-				             (master[2] && !master_2_cmd) ? 4'b0100 : 
-				             (master[3] && !master_3_cmd) ? 4'b1000 : 4'b0000;
+				       (master[1] && !master_1_cmd) ? 4'b0010 :
+				       (master[2] && !master_2_cmd) ? 4'b0100 : 
+				       (master[3] && !master_3_cmd) ? 4'b1000 : 4'b0000;
 	end    
 
 	assign master_0_rdata = (master_0_resp) ?
-									           slave_0_resp ? slave_0_rdata:
-									           slave_1_resp ? slave_1_rdata:
-									           slave_2_resp ? slave_2_rdata:
-									           slave_3_resp ? slave_3_rdata: 0 : 0;
+				   slave_0_resp ? slave_0_rdata:
+				   slave_1_resp ? slave_1_rdata:
+				   slave_2_resp ? slave_2_rdata:
+				   slave_3_resp ? slave_3_rdata: 0 : 0;
 	assign master_1_rdata = (master_1_resp) ?
-									           slave_0_resp ? slave_0_rdata:
-									           slave_1_resp ? slave_1_rdata:
-									           slave_2_resp ? slave_2_rdata:
-									           slave_3_resp ? slave_3_rdata: 0 : 0;
+			           slave_0_resp ? slave_0_rdata:
+				   slave_1_resp ? slave_1_rdata:
+				   slave_2_resp ? slave_2_rdata:
+				   slave_3_resp ? slave_3_rdata: 0 : 0;
 	assign master_2_rdata = (master_2_resp) ?
-									           slave_0_resp ? slave_0_rdata:
-									           slave_1_resp ? slave_1_rdata:
-									           slave_2_resp ? slave_2_rdata:
-									           slave_3_resp ? slave_3_rdata: 0 : 0;
+				   slave_0_resp ? slave_0_rdata:
+				   slave_1_resp ? slave_1_rdata:
+			           slave_2_resp ? slave_2_rdata:
+				   slave_3_resp ? slave_3_rdata: 0 : 0;
 	assign master_3_rdata = (master_3_resp) ?
-									           slave_0_resp ? slave_0_rdata:
-									           slave_1_resp ? slave_1_rdata:
-									           slave_2_resp ? slave_2_rdata:
-									           slave_3_resp ? slave_3_rdata: 0 : 0;
+				   slave_0_resp ? slave_0_rdata:
+				   slave_1_resp ? slave_1_rdata:
+				   slave_2_resp ? slave_2_rdata:
+				   slave_3_resp ? slave_3_rdata: 0 : 0;
 
 	assign master_0_resp = (master_read == 4'b0001 && slave_resp) ? 1'b1 : 1'b0;  
 	assign master_1_resp = (master_read == 4'b0010 && slave_resp) ? 1'b1 : 1'b0;
