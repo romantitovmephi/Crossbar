@@ -139,98 +139,98 @@ module crossbar (
 
 	// SLAVES LOGIC
 	assign slave_0_addr = (slave_0_req) ?
-								  (master == 4'b0001) ? master_0_addr:
-								  (master == 4'b0010) ? master_1_addr:
-								  (master == 4'b0100) ? master_2_addr:
-								  (master == 4'b1000) ? master_3_addr: 0 : 0;
+		        (master == 4'b0001) ? master_0_addr:
+			(master == 4'b0010) ? master_1_addr:
+			(master == 4'b0100) ? master_2_addr:
+			(master == 4'b1000) ? master_3_addr: 0 : 0;
 	assign slave_1_addr = (slave_1_req) ?
-								  (master == 4'b0001) ? master_0_addr:
-								  (master == 4'b0010) ? master_1_addr:
-								  (master == 4'b0100) ? master_2_addr:
-								  (master == 4'b1000) ? master_3_addr: 0 : 0;
+		        (master == 4'b0001) ? master_0_addr:
+		        (master == 4'b0010) ? master_1_addr:
+		        (master == 4'b0100) ? master_2_addr:
+		        (master == 4'b1000) ? master_3_addr: 0 : 0;
 	assign slave_2_addr = (slave_2_req) ?
-								  (master == 4'b0001) ? master_0_addr:
-								  (master == 4'b0010) ? master_1_addr:
-								  (master == 4'b0100) ? master_2_addr:
-								  (master == 4'b1000) ? master_3_addr: 0 : 0;
+		        (master == 4'b0001) ? master_0_addr:
+		        (master == 4'b0010) ? master_1_addr:
+			(master == 4'b0100) ? master_2_addr:
+			(master == 4'b1000) ? master_3_addr: 0 : 0;
 	assign slave_3_addr = (slave_3_req) ?
-								  (master == 4'b0001) ? master_0_addr:
-								  (master == 4'b0010) ? master_1_addr:
-								  (master == 4'b0100) ? master_2_addr:
-								  (master == 4'b1000) ? master_3_addr: 0 : 0;
+		        (master == 4'b0001) ? master_0_addr:
+		        (master == 4'b0010) ? master_1_addr:
+		        (master == 4'b0100) ? master_2_addr:
+		        (master == 4'b1000) ? master_3_addr: 0 : 0;
 
 	assign slave_0_cmd = (slave_0_req) ?
-								 (master == 4'b0001) ? master_0_cmd:
-								 (master == 4'b0010) ? master_1_cmd:
-								 (master == 4'b0100) ? master_2_cmd:
-								 (master == 4'b1000) ? master_3_cmd: 1'b0 : 1'b0;
+		       (master == 4'b0001) ? master_0_cmd:
+		       (master == 4'b0010) ? master_1_cmd:
+		       (master == 4'b0100) ? master_2_cmd:
+		       (master == 4'b1000) ? master_3_cmd: 1'b0 : 1'b0;
 	assign slave_1_cmd = (slave_1_req) ?
-								 (master == 4'b0001) ? master_0_cmd:
-								 (master == 4'b0010) ? master_1_cmd:
-								 (master == 4'b0100) ? master_2_cmd:
-								 (master == 4'b1000) ? master_3_cmd: 1'b0 : 1'b0;
+		       (master == 4'b0001) ? master_0_cmd:
+		       (master == 4'b0010) ? master_1_cmd:
+		       (master == 4'b0100) ? master_2_cmd:
+		       (master == 4'b1000) ? master_3_cmd: 1'b0 : 1'b0;
 	assign slave_2_cmd = (slave_2_req) ?
-								 (master == 4'b0001) ? master_0_cmd:
-								 (master == 4'b0010) ? master_1_cmd:
-								 (master == 4'b0100) ? master_2_cmd:
-								 (master == 4'b1000) ? master_3_cmd: 1'b0 : 1'b0;
+		       (master == 4'b0001) ? master_0_cmd:
+		       (master == 4'b0010) ? master_1_cmd:
+		       (master == 4'b0100) ? master_2_cmd:
+		       (master == 4'b1000) ? master_3_cmd: 1'b0 : 1'b0;
 	assign slave_3_cmd = (slave_3_req) ?
-								 (master == 4'b0001) ? master_0_cmd:
-								 (master == 4'b0010) ? master_1_cmd:
-								 (master == 4'b0100) ? master_2_cmd:
-								 (master == 4'b1000) ? master_3_cmd: 1'b0 : 1'b0;
+		       (master == 4'b0001) ? master_0_cmd:
+		       (master == 4'b0010) ? master_1_cmd:
+		       (master == 4'b0100) ? master_2_cmd:
+		       (master == 4'b1000) ? master_3_cmd: 1'b0 : 1'b0;
 
 
 	assign slave_0_wdata = (slave_0_req) ?
-								   (master == 4'b0001) ? master_0_wdata:
-								   (master == 4'b0010) ? master_1_wdata:
-								   (master == 4'b0100) ? master_2_wdata:
-								   (master == 4'b1000) ? master_3_wdata: 0 : 0;
+		         (master == 4'b0001) ? master_0_wdata:
+		         (master == 4'b0010) ? master_1_wdata:
+			 (master == 4'b0100) ? master_2_wdata:
+			 (master == 4'b1000) ? master_3_wdata: 0 : 0;
 	assign slave_1_wdata = (slave_1_req) ?
-								   (master == 4'b0001) ? master_0_wdata:
-								   (master == 4'b0010) ? master_1_wdata:
-								   (master == 4'b0100) ? master_2_wdata:
-								   (master == 4'b1000) ? master_3_wdata: 0 : 0;
+			 (master == 4'b0001) ? master_0_wdata:
+			 (master == 4'b0010) ? master_1_wdata:
+		         (master == 4'b0100) ? master_2_wdata:
+		         (master == 4'b1000) ? master_3_wdata: 0 : 0;
 	assign slave_2_wdata = (slave_2_req) ?
-								   (master == 4'b0001) ? master_0_wdata:
-								   (master == 4'b0010) ? master_1_wdata:
-								   (master == 4'b0100) ? master_2_wdata:
-								   (master == 4'b1000) ? master_3_wdata: 0 : 0;
+			 (master == 4'b0001) ? master_0_wdata:
+		         (master == 4'b0010) ? master_1_wdata:
+			 (master == 4'b0100) ? master_2_wdata:
+			 (master == 4'b1000) ? master_3_wdata: 0 : 0;
 	assign slave_3_wdata = (slave_3_req) ?
-								   (master == 4'b0001) ? master_0_wdata:
-								   (master == 4'b0010) ? master_1_wdata:
-								   (master == 4'b0100) ? master_2_wdata:
-								   (master == 4'b1000) ? master_3_wdata: 0 : 0;
+			 (master == 4'b0001) ? master_0_wdata:
+			 (master == 4'b0010) ? master_1_wdata:
+			 (master == 4'b0100) ? master_2_wdata:
+			 (master == 4'b1000) ? master_3_wdata: 0 : 0;
 
-  // DELAY SLAVE ACK TO RESET SLAVE REQ
-	reg slave_0_ack_delayed;
-  reg slave_1_ack_delayed;
-  reg slave_2_ack_delayed;
-  reg slave_3_ack_delayed;
+       // DELAY SLAVE ACK TO RESET SLAVE REQ
+       reg slave_0_ack_delayed;
+       reg slave_1_ack_delayed;
+       reg slave_2_ack_delayed;
+       reg slave_3_ack_delayed;
 
-   always @(posedge clk) begin
-     slave_0_ack_delayed <= slave_0_ack;
-     slave_1_ack_delayed <= slave_1_ack;
-     slave_2_ack_delayed <= slave_2_ack;
-     slave_3_ack_delayed <= slave_3_ack;
-   end
+       always @(posedge clk) begin
+       slave_0_ack_delayed <= slave_0_ack;
+       slave_1_ack_delayed <= slave_1_ack;
+       slave_2_ack_delayed <= slave_2_ack;
+       slave_3_ack_delayed <= slave_3_ack;
+      end
 
- assign slave_0_req = (((master == 4'b0001 && master_0_addr[31:30] == 2'b00) ||
-								        (master == 4'b0010 && master_1_addr[31:30] == 2'b00) ||
-							         	(master == 4'b0100 && master_2_addr[31:30] == 2'b00) ||
-								        (master == 4'b1000 && master_3_addr[31:30] == 2'b00)) && ~slave_0_ack_delayed) ? 1'b1 : 1'b0;
- assign slave_1_req = (((master == 4'b0001 && master_0_addr[31:30] == 2'b01) ||
-								        (master == 4'b0010 && master_1_addr[31:30] == 2'b01) ||
-								        (master == 4'b0100 && master_2_addr[31:30] == 2'b01) ||
-							        	(master == 4'b1000 && master_3_addr[31:30] == 2'b01)) && ~slave_1_ack_delayed) ? 1'b1 : 1'b0;
- assign slave_2_req = (((master == 4'b0001 && master_0_addr[31:30] == 2'b10) ||
-								        (master == 4'b0010 && master_1_addr[31:30] == 2'b10) ||
-								        (master == 4'b0100 && master_2_addr[31:30] == 2'b10) ||
-								        (master == 4'b1000 && master_3_addr[31:30] == 2'b10)) && ~slave_2_ack_delayed) ? 1'b1 : 1'b0;
- assign slave_3_req = (((master == 4'b0001 && master_0_addr[31:30] == 2'b11) ||
-								        (master == 4'b0010 && master_1_addr[31:30] == 2'b11) ||
-								        (master == 4'b0100 && master_2_addr[31:30] == 2'b11) ||
-								        (master == 4'b1000 && master_3_addr[31:30] == 2'b11)) && ~slave_3_ack_delayed) ? 1'b1 : 1'b0;
+      assign slave_0_req = (((master == 4'b0001 && master_0_addr[31:30] == 2'b00) ||
+			     (master == 4'b0010 && master_1_addr[31:30] == 2'b00) ||
+			     (master == 4'b0100 && master_2_addr[31:30] == 2'b00) ||
+			     (master == 4'b1000 && master_3_addr[31:30] == 2'b00)) && ~slave_0_ack_delayed) ? 1'b1 : 1'b0;
+      assign slave_1_req = (((master == 4'b0001 && master_0_addr[31:30] == 2'b01) ||
+			     (master == 4'b0010 && master_1_addr[31:30] == 2'b01) ||
+			     (master == 4'b0100 && master_2_addr[31:30] == 2'b01) ||
+			     (master == 4'b1000 && master_3_addr[31:30] == 2'b01)) && ~slave_1_ack_delayed) ? 1'b1 : 1'b0;
+      assign slave_2_req = (((master == 4'b0001 && master_0_addr[31:30] == 2'b10) ||
+			     (master == 4'b0010 && master_1_addr[31:30] == 2'b10) ||
+			     (master == 4'b0100 && master_2_addr[31:30] == 2'b10) ||
+			     (master == 4'b1000 && master_3_addr[31:30] == 2'b10)) && ~slave_2_ack_delayed) ? 1'b1 : 1'b0;
+      assign slave_3_req = (((master == 4'b0001 && master_0_addr[31:30] == 2'b11) ||
+			     (master == 4'b0010 && master_1_addr[31:30] == 2'b11) ||
+			     (master == 4'b0100 && master_2_addr[31:30] == 2'b11) ||
+			     (master == 4'b1000 && master_3_addr[31:30] == 2'b11)) && ~slave_3_ack_delayed) ? 1'b1 : 1'b0;
 
 
 endmodule
