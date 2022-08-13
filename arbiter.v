@@ -1,4 +1,3 @@
-
 module arbiter (
 	clk,    
 	reset,    
