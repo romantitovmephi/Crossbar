@@ -1,15 +1,15 @@
 
 module arbiter (
-	  clk,    
-	  reset,    
-	  req3,
-	  req2,
-	  req1,
-	  req0,   
-	  gnt3,   
-	  gnt2,   
-	  gnt1,   
-	  gnt0
+	clk,    
+	reset,    
+	req3,
+	req2,
+	req1,
+	req0,   
+	gnt3,   
+	gnt2,   
+	gnt1,   
+	gnt0
 	);
 
 	input  clk;    
@@ -24,7 +24,7 @@ module arbiter (
 	output gnt0;
  
 	wire beg       ;        // BEGIN SIGNAL
-       wire comreq    ;        // COMMUNICATION REQUEST SIGNAL 
+        wire comreq    ;        // COMMUNICATION REQUEST SIGNAL 
 	wire [1:0] gnt ;        // ENCODED GRANT 
 	reg  lgnt0     ;        // LATCHED GRANTS 
 	reg  lgnt1     ;
@@ -42,48 +42,48 @@ module arbiter (
 	  lgnt3 <= 0;
 	end 
         else 
-             begin 
+          begin 
 
-     // ARBITRATION LOGIC. GRANT SIGNALS DATAFLOW MODELLING
-     lgnt0 <= (~comreq & ~mask1 & ~mask0 & ~req3 & ~req2 & ~req1 & req0)     
-            | (~comreq & ~mask1 &  mask0 & ~req3 & ~req2 &  req0)             
-            | (~comreq &  mask1 & ~mask0 & ~req3 &  req0)                     
-            | (~comreq &  mask1 &  mask0 & req0)                              
-            | ( comreq &  lgnt0);
+       // ARBITRATION LOGIC. GRANT SIGNALS DATAFLOW MODELLING
+       lgnt0 <= (~comreq & ~mask1 & ~mask0 & ~req3 & ~req2 & ~req1 & req0)     
+              | (~comreq & ~mask1 &  mask0 & ~req3 & ~req2 &  req0)             
+              | (~comreq &  mask1 & ~mask0 & ~req3 &  req0)                     
+              | (~comreq &  mask1 &  mask0 & req0)                              
+              | ( comreq &  lgnt0);
       
-     lgnt1 <= (~comreq & ~mask1 & ~mask0 &  req1)
-            | (~comreq & ~mask1 &  mask0 & ~req3 & ~req2 &  req1 & ~req0)
-            | (~comreq &  mask1 & ~mask0 & ~req3 &  req1 & ~req0)
-            | (~comreq &  mask1 &  mask0 &  req1 & ~req0)
-            | ( comreq &  lgnt1);
+       lgnt1 <= (~comreq & ~mask1 & ~mask0 &  req1)
+              | (~comreq & ~mask1 &  mask0 & ~req3 & ~req2 &  req1 & ~req0)
+              | (~comreq &  mask1 & ~mask0 & ~req3 &  req1 & ~req0)
+              | (~comreq &  mask1 &  mask0 &  req1 & ~req0)
+              | ( comreq &  lgnt1);
       
-     lgnt2 <= (~comreq & ~mask1 & ~mask0 &  req2 & ~req1)
-            | (~comreq & ~mask1 &  mask0 &  req2)
-            | (~comreq &  mask1 & ~mask0 & ~req3 &  req2 & ~req1 & ~req0)
-            | (~comreq &  mask1 &  mask0 &  req2 & ~req1 & ~req0)
-            | ( comreq &  lgnt2);
+       lgnt2 <= (~comreq & ~mask1 & ~mask0 &  req2 & ~req1)
+              | (~comreq & ~mask1 &  mask0 &  req2)
+              | (~comreq &  mask1 & ~mask0 & ~req3 &  req2 & ~req1 & ~req0)
+              | (~comreq &  mask1 &  mask0 &  req2 & ~req1 & ~req0)
+              | ( comreq &  lgnt2);
       
-     lgnt3 <= (~comreq & ~mask1 & ~mask0 & req3  & ~req2 & ~req1)
-            | (~comreq & ~mask1 &  mask0 & req3  & ~req2)
-            | (~comreq &  mask1 & ~mask0 & req3)
-            | (~comreq &  mask1 &  mask0 & req3  & ~req2 & ~req1 & ~req0)
-            | ( comreq &  lgnt3);
+       lgnt3 <= (~comreq & ~mask1 & ~mask0 & req3  & ~req2 & ~req1)
+              | (~comreq & ~mask1 &  mask0 & req3  & ~req2)
+              | (~comreq &  mask1 & ~mask0 & req3)
+              | (~comreq &  mask1 &  mask0 & req3  & ~req2 & ~req1 & ~req0)
+              | ( comreq &  lgnt3);
 
-	end 
+	  end 
 
 	// BEGIN INPUT LOGIC 
 	assign beg = (req3 | req2 | req1 | req0) & ~comreq;  
      
-       // NEW MASK VALUE
+        // NEW MASK VALUE
 	always @ (posedge clk) begin                                                                       
-       enmask <= (beg & ~enmask);                            
+        enmask <= (beg & ~enmask);                            
 	end 
 
 	// COMREQ LOGIC (BUS STATUS) 0 - FREE, 1 - BUSY
 	assign comreq = (req3 & lgnt3)
-			| (req2 & lgnt2)
-			| (req1 & lgnt1)
-		       | (req0 & lgnt0);
+		      | (req2 & lgnt2)
+		      | (req1 & lgnt1)
+		      | (req0 & lgnt0);
 
 	// ENCODER LOGIC. INDICATES WHICH MASTER HAS BEEN GRANTED THE BUS
 	assign gnt = {(lgnt3 | lgnt2),(lgnt3 | lgnt1)};
@@ -100,7 +100,7 @@ module arbiter (
 	    mask1 <= mask1;
 	    mask0 <= mask0;
 	  end 
-     end
+        end
 
 	assign gnt3 = lgnt3;   
 	assign gnt2 = lgnt2;
