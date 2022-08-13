@@ -337,7 +337,7 @@ module crossbar_testbench();
 	input reset,
 	output reg ack,     
 	input req,
-	input cmd,			                 // 0 - READ, 1 - WRITE
+	input cmd,			        // 0 - READ, 1 - WRITE
 	output reg resp,
 	input [31:0] addr,
 	input [31:0] wdata,
@@ -347,42 +347,42 @@ module crossbar_testbench();
 	reg [31:0] mem [1023:0];
 	
 	always @(posedge clk) begin
-    if (reset) 
-    begin
-      ack <= 0;
-    end 
-    else if (req) 
-     begin
-      ack <= 1;
-     end 
-     else 
-      begin
-        ack <= 0;
-      end
-   begin
-     if (ack)
-      ack <= 0;
-   end
-end
+          if (reset) 
+          begin
+            ack <= 0;
+          end 
+          else if (req) 
+           begin
+            ack <= 1;
+           end 
+           else 
+            begin
+             ack <= 0;
+            end
+             begin
+             if (ack)
+              ack <= 0;
+             end
+        end
 
 	always @(posedge clk) begin
-		if (reset)
-		begin
-			resp <= 0;
-			rdata <= 0;
-		end
-		else if (req && ack)
-		begin
-			if (cmd)
-				mem[addr & 'h000003ff] <= wdata;
-			else
-			begin
-				resp <= 1;
-				rdata <= mem[addr & 'h000003ff];
-			end
-		end
-		if (resp)
-			resp <= 0;
+          if (reset)
+	  begin
+	    resp <= 0;
+	    rdata <= 0;
+	  end
+	  else if (req && ack)
+	  begin
+	    if (cmd)
+	      mem[addr & 'h000003ff] <= wdata;
+	    else
+	    begin
+	      resp <= 1;
+	      rdata <= mem[addr & 'h000003ff];
+	    end
+	 end
+	if (resp)
+	  resp <= 0;
 	end
 
-endmodule
+ endmodule
