@@ -8,7 +8,7 @@
 
 ## Testbench
 
-`crossbar_testbench.sv` — тестовый модуль
+`crossbar_testbench.v` — тестовый модуль
 
 Тестбенч выполняет симуляцию поведения четырех MASTER устройств и четырех SLAVE устройств. 
 
