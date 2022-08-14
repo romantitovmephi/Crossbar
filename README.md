@@ -21,7 +21,7 @@ ___
 
 ## [Описание интерфейса](https://github.com/romantitovmephi/Crossbar/blob/main/docs/interface.md)
 
-## [Структурная схема]
+## [Структурная схема]()
 
 ## [Отчет о синтезе (Cyclone IV E)](https://github.com/romantitovmephi/Crossbar/blob/main/docs/synthesis.md)
 
