@@ -19,7 +19,7 @@
 ### Source File Read
 
 |  File Name  | Used |         Type          |
-| ------------------------------------------ | 
+| ------------|------|---------------------- | 
 | crossbar.v  | yes  | User Verilog HDL File |
 | arbiter.sv  | yes  | User Verilog HDL File |
 
