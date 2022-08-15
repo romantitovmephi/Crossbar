@@ -209,10 +209,10 @@ module crossbar (
         reg slave_3_ack_delayed;
 
         always @(posedge clk) begin
-        slave_0_ack_delayed <= slave_0_ack;
-        slave_1_ack_delayed <= slave_1_ack;
-        slave_2_ack_delayed <= slave_2_ack;
-        slave_3_ack_delayed <= slave_3_ack;
+          slave_0_ack_delayed <= slave_0_ack;
+          slave_1_ack_delayed <= slave_1_ack;
+          slave_2_ack_delayed <= slave_2_ack;
+          slave_3_ack_delayed <= slave_3_ack;
         end
 
         assign slave_0_req = (((master == 4'b0001 && master_0_addr[31:30] == 2'b00) ||
