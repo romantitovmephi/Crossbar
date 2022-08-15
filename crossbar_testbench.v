@@ -70,7 +70,7 @@ module crossbar_testbench();
 	wire [31:0] slave_3_rdata;
 	wire [31:0] slave_3_addr;
 	                            
-	crossbar dut (
+	crossbar dut(
 	  .clk(clk),
 	  .reset(reset),
 		
@@ -140,7 +140,7 @@ module crossbar_testbench();
 	);
 
 	// INSTANTIATION SLAVES
-	slave slave_0 (
+	slave slave_0(
 	  .clk(clk),
 	  .reset(reset),
 	  .req(slave_0_req),
@@ -152,7 +152,7 @@ module crossbar_testbench();
 	  .rdata(slave_0_rdata)
 	);
 	
-	slave slave_1 (
+	slave slave_1(
 	  .clk(clk),
 	  .reset(reset),
 	  .req(slave_1_req),
@@ -164,7 +164,7 @@ module crossbar_testbench();
 	  .rdata(slave_1_rdata)
 	);
 	
-	slave slave_2 (
+	slave slave_2(
 	  .clk(clk),
 	  .reset(reset),
 	  .req(slave_2_req),
@@ -176,7 +176,7 @@ module crossbar_testbench();
 	  .rdata(slave_2_rdata)
 	);
 	
-	slave slave_3 (
+	slave slave_3(
 	  .clk(clk),
 	  .reset(reset),
 	  .req(slave_3_req),
