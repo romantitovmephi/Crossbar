@@ -71,147 +71,147 @@ module crossbar_testbench();
 	wire [31:0] slave_3_addr;
 	                            
 	crossbar dut (
-		.clk(clk),
-		.reset(reset),
+	  .clk(clk),
+	  .reset(reset),
 		
-		.master_0_req(master_0_req),
-		.master_0_cmd(master_0_cmd),
-		.master_0_ack(master_0_ack),
-		.master_0_resp(master_0_resp),
-		.master_0_addr(master_0_addr),
-		.master_0_wdata(master_0_wdata),
-		.master_0_rdata(master_0_rdata),
+	  .master_0_req(master_0_req),
+	  .master_0_cmd(master_0_cmd),
+	  .master_0_ack(master_0_ack),
+	  .master_0_resp(master_0_resp),
+	  .master_0_addr(master_0_addr),
+	  .master_0_wdata(master_0_wdata),
+	  .master_0_rdata(master_0_rdata),
 		
-		.master_1_req(master_1_req),
-		.master_1_cmd(master_1_cmd),
-		.master_1_ack(master_1_ack),
-		.master_1_resp(master_1_resp),
-		.master_1_addr(master_1_addr),
-		.master_1_wdata(master_1_wdata),
-		.master_1_rdata(master_1_rdata),
+	  .master_1_req(master_1_req),
+	  .master_1_cmd(master_1_cmd),
+	  .master_1_ack(master_1_ack),
+	  .master_1_resp(master_1_resp),
+	  .master_1_addr(master_1_addr),
+	  .master_1_wdata(master_1_wdata),
+	  .master_1_rdata(master_1_rdata),
 		
-		.master_2_req(master_2_req),
-		.master_2_cmd(master_2_cmd),
-		.master_2_ack(master_2_ack),
-		.master_2_resp(master_2_resp),
-		.master_2_addr(master_2_addr),
-		.master_2_wdata(master_2_wdata),
-		.master_2_rdata(master_2_rdata),
+	  .master_2_req(master_2_req),
+	  .master_2_cmd(master_2_cmd),
+	  .master_2_ack(master_2_ack),
+	  .master_2_resp(master_2_resp),
+	  .master_2_addr(master_2_addr),
+	  .master_2_wdata(master_2_wdata),
+	  .master_2_rdata(master_2_rdata),
 		
-		.master_3_req(master_3_req),
-		.master_3_cmd(master_3_cmd),
-		.master_3_ack(master_3_ack),
-		.master_3_resp(master_3_resp),
-		.master_3_addr(master_3_addr),
-		.master_3_wdata(master_3_wdata),
-		.master_3_rdata(master_3_rdata),
+	  .master_3_req(master_3_req),
+	  .master_3_cmd(master_3_cmd),
+	  .master_3_ack(master_3_ack),
+	  .master_3_resp(master_3_resp),
+	  .master_3_addr(master_3_addr),
+	  .master_3_wdata(master_3_wdata),
+	  .master_3_rdata(master_3_rdata),
 		
-		.slave_0_req(slave_0_req),
-		.slave_0_ack(slave_0_ack),
-		.slave_0_cmd(slave_0_cmd),
-		.slave_0_resp(slave_0_resp),
-		.slave_0_rdata(slave_0_rdata),
-		.slave_0_wdata(slave_0_wdata),
-		.slave_0_addr(slave_0_addr),
+	  .slave_0_req(slave_0_req),
+	  .slave_0_ack(slave_0_ack),
+	  .slave_0_cmd(slave_0_cmd),
+	  .slave_0_resp(slave_0_resp),
+	  .slave_0_rdata(slave_0_rdata),
+	  .slave_0_wdata(slave_0_wdata),
+	  .slave_0_addr(slave_0_addr),
 		
-		.slave_1_req(slave_1_req),
-		.slave_1_ack(slave_1_ack),
-		.slave_1_cmd(slave_1_cmd),
-		.slave_1_resp(slave_1_resp),
-		.slave_1_rdata(slave_1_rdata),
-		.slave_1_wdata(slave_1_wdata),
-		.slave_1_addr(slave_1_addr),
+	  .slave_1_req(slave_1_req),
+	  .slave_1_ack(slave_1_ack),
+	  .slave_1_cmd(slave_1_cmd),
+	  .slave_1_resp(slave_1_resp),
+	  .slave_1_rdata(slave_1_rdata),
+	  .slave_1_wdata(slave_1_wdata),
+	  .slave_1_addr(slave_1_addr),
 		
-		.slave_2_req(slave_2_req),
-		.slave_2_ack(slave_2_ack),
-		.slave_2_cmd(slave_2_cmd),
-		.slave_2_resp(slave_2_resp),
-		.slave_2_rdata(slave_2_rdata),
-		.slave_2_wdata(slave_2_wdata),
-		.slave_2_addr(slave_2_addr),
+	  .slave_2_req(slave_2_req),
+	  .slave_2_ack(slave_2_ack),
+	  .slave_2_cmd(slave_2_cmd),
+	  .slave_2_resp(slave_2_resp),
+	  .slave_2_rdata(slave_2_rdata),
+	  .slave_2_wdata(slave_2_wdata),
+	  .slave_2_addr(slave_2_addr),
 		
-		.slave_3_req(slave_3_req),
-		.slave_3_ack(slave_3_ack),
-		.slave_3_cmd(slave_3_cmd),
-		.slave_3_resp(slave_3_resp),
-		.slave_3_rdata(slave_3_rdata),
-		.slave_3_wdata(slave_3_wdata),
-		.slave_3_addr(slave_3_addr)
+	  .slave_3_req(slave_3_req),
+	  .slave_3_ack(slave_3_ack),
+	  .slave_3_cmd(slave_3_cmd),
+	  .slave_3_resp(slave_3_resp),
+	  .slave_3_rdata(slave_3_rdata),
+	  .slave_3_wdata(slave_3_wdata),
+	  .slave_3_addr(slave_3_addr)
 	);
 
 	// INSTANTIATION SLAVES
 	slave slave_0 (
-		.clk(clk),
-		.reset(reset),
-		.req(slave_0_req),
-		.cmd(slave_0_cmd),
-		.ack(slave_0_ack),
-		.resp(slave_0_resp),
-		.addr(slave_0_addr),
-		.wdata(slave_0_wdata),
-		.rdata(slave_0_rdata)
+	  .clk(clk),
+	  .reset(reset),
+	  .req(slave_0_req),
+	  .cmd(slave_0_cmd),
+	  .ack(slave_0_ack),
+	  .resp(slave_0_resp),
+	  .addr(slave_0_addr),
+	  .wdata(slave_0_wdata),
+	  .rdata(slave_0_rdata)
 	);
 	
 	slave slave_1 (
-		.clk(clk),
-		.reset(reset),
-		.req(slave_1_req),
-		.cmd(slave_1_cmd),
-		.ack(slave_1_ack),
-		.resp(slave_1_resp),
-		.addr(slave_1_addr),
-		.wdata(slave_1_wdata),
-		.rdata(slave_1_rdata)
+	  .clk(clk),
+	  .reset(reset),
+	  .req(slave_1_req),
+	  .cmd(slave_1_cmd),
+	  .ack(slave_1_ack),
+	  .resp(slave_1_resp),
+	  .addr(slave_1_addr),
+	  .wdata(slave_1_wdata),
+	  .rdata(slave_1_rdata)
 	);
 	
 	slave slave_2 (
-		.clk(clk),
-		.reset(reset),
-		.req(slave_2_req),
-		.cmd(slave_2_cmd),
-		.ack(slave_2_ack),
-		.resp(slave_2_resp),
-		.addr(slave_2_addr),
-		.wdata(slave_2_wdata),
-		.rdata(slave_2_rdata)
+	  .clk(clk),
+	  .reset(reset),
+	  .req(slave_2_req),
+	  .cmd(slave_2_cmd),
+	  .ack(slave_2_ack),
+	  .resp(slave_2_resp),
+	  .addr(slave_2_addr),
+	  .wdata(slave_2_wdata),
+	  .rdata(slave_2_rdata)
 	);
 	
 	slave slave_3 (
-		.clk(clk),
-		.reset(reset),
-		.req(slave_3_req),
-		.cmd(slave_3_cmd),
-		.ack(slave_3_ack),
-		.resp(slave_3_resp),
-		.addr(slave_3_addr),
-		.wdata(slave_3_wdata),
-		.rdata(slave_3_rdata)
+	  .clk(clk),
+	  .reset(reset),
+	  .req(slave_3_req),
+	  .cmd(slave_3_cmd),
+	  .ack(slave_3_ack),
+	  .resp(slave_3_resp),
+	  .addr(slave_3_addr),
+	  .wdata(slave_3_wdata),
+	  .rdata(slave_3_rdata)
 	);
 	
 	initial begin                                                  
-		// CODE THAT EXECUTES ONLY ONCE
-		clk = 1;
-		master_0_req = 0;
-		master_1_req = 0;
-		master_2_req = 0;
-		master_3_req = 0;
-		master_0_cmd = 0;
-		master_1_cmd = 0;
-		master_2_cmd = 0;
-		master_3_cmd = 0;
-		master_0_wdata = 0;
-		master_1_wdata = 0;
-		master_2_wdata = 0;
-		master_3_wdata = 0;
-		master_0_addr = 0;
-		master_1_addr = 0;
-		master_2_addr = 0;
-		master_3_addr = 0;
+          // CODE THAT EXECUTES ONLY ONCE
+	  clk = 1;
+	  master_0_req = 0;
+	  master_1_req = 0;
+	  master_2_req = 0;
+	  master_3_req = 0;
+	  master_0_cmd = 0;
+	  master_1_cmd = 0;
+	  master_2_cmd = 0;
+	  master_3_cmd = 0;
+	  master_0_wdata = 0;
+	  master_1_wdata = 0;
+	  master_2_wdata = 0;
+	  master_3_wdata = 0;
+	  master_0_addr = 0;
+	  master_1_addr = 0;
+	  master_2_addr = 0;
+	  master_3_addr = 0;
 			
-		reset = 1;
-		repeat(1)
-	          @(posedge clk);
-		reset = 0;
+	  reset = 1;
+	  repeat(1)
+	    @(posedge clk);
+	  reset = 0;
 	end
 
 	// GENERATE CLK
