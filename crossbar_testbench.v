@@ -331,7 +331,7 @@ module crossbar_testbench();
  endmodule
 
  // SLAVE RESPONSE EMULATION MODULE
- module slave (
+ module slave(
 	input clk,
 	input reset,
 	output reg ack,     
