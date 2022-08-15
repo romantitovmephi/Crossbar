@@ -215,58 +215,57 @@ module crossbar_testbench();
 	end
 
 	// GENERATE CLK
-		always begin
-		  #5; 
-		  clk = ~clk;
-		end  
+	always begin
+          #5; 
+          clk = ~clk;
+	end  
 
-        initial
-	   begin
+        initial begin
 	   @(negedge reset);
-           crossbar_transaction(1,0,32'hABCD_0001, 32'hABCD_0001); // M0 WRITE
-           crossbar_transaction(1,1,32'hABCD_0002, 32'hABCD_0002); // M1 WRITE
-           crossbar_transaction(1,2,32'hABCD_0003, 32'hABCD_0003); // M2 WRITE
-           crossbar_transaction(1,3,32'hABCD_0004, 32'hABCD_0004); // M3 WRITE
+             crossbar_transaction(1,0,32'hABCD_0001, 32'hABCD_0001); // M0 WRITE
+             crossbar_transaction(1,1,32'hABCD_0002, 32'hABCD_0002); // M1 WRITE
+             crossbar_transaction(1,2,32'hABCD_0003, 32'hABCD_0003); // M2 WRITE
+             crossbar_transaction(1,3,32'hABCD_0004, 32'hABCD_0004); // M3 WRITE
            repeat(5)
 	     @(posedge clk);
-           crossbar_transaction(0,0,32'hABCD_0001, 0); // M0 READ
-           crossbar_transaction(0,1,32'hABCD_0002, 0); // M1 READ
-           crossbar_transaction(0,2,32'hABCD_0003, 0); // M2 READ
-           crossbar_transaction(0,3,32'hABCD_0004, 0); // M3 READ
+             crossbar_transaction(0,0,32'hABCD_0001, 0); // M0 READ
+             crossbar_transaction(0,1,32'hABCD_0002, 0); // M1 READ
+             crossbar_transaction(0,2,32'hABCD_0003, 0); // M2 READ
+             crossbar_transaction(0,3,32'hABCD_0004, 0); // M3 READ
            repeat(5)
 	     @(posedge clk);
            fork 
-	   crossbar_transaction(1,0,32'hABCD_0101, 32'hABCD_0001); // M0 WRITE
-	   crossbar_transaction(1,1,32'hABCD_0101, 32'hABCD_0002); // M1 WRITE
-	   crossbar_transaction(1,2,32'hABCD_0101, 32'hABCD_0003); // M2 WRITE
-	   crossbar_transaction(1,3,32'hABCD_0101, 32'hABCD_0004); // M3 WRITE
+	     crossbar_transaction(1,0,32'hABCD_0101, 32'hABCD_0001); // M0 WRITE
+	     crossbar_transaction(1,1,32'hABCD_0101, 32'hABCD_0002); // M1 WRITE
+	     crossbar_transaction(1,2,32'hABCD_0101, 32'hABCD_0003); // M2 WRITE
+	     crossbar_transaction(1,3,32'hABCD_0101, 32'hABCD_0004); // M3 WRITE
            join 	
            repeat(5)
 	     @(posedge clk);
            fork 
-	   crossbar_transaction(0,0,32'hABCD_0101, 0); // M0 READ
-           crossbar_transaction(0,1,32'hABCD_0101, 0); // M1 READ
-           crossbar_transaction(0,2,32'hABCD_0101, 0); // M2 READ
-           crossbar_transaction(0,3,32'hABCD_0101, 0); // M3 READ
+	     crossbar_transaction(0,0,32'hABCD_0101, 0); // M0 READ
+             crossbar_transaction(0,1,32'hABCD_0101, 0); // M1 READ
+             crossbar_transaction(0,2,32'hABCD_0101, 0); // M2 READ
+             crossbar_transaction(0,3,32'hABCD_0101, 0); // M3 READ
            join 
            repeat(5)
 	     @(posedge clk);
            fork 
-           crossbar_transaction(1,0,32'h4BCD_0001, 32'hABCD_0001); // M0 WRITE
-           crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0002); // M2 WRITE
+             crossbar_transaction(1,0,32'h4BCD_0001, 32'hABCD_0001); // M0 WRITE
+             crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0002); // M2 WRITE
            join 
            repeat(5)
 	     @(posedge clk);
            fork 
-           crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0001); // M2 WRITE
-           crossbar_transaction(1,1,32'h4BCD_0001, 32'hABCD_0002); // M1 WRITE
+             crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0001); // M2 WRITE
+             crossbar_transaction(1,1,32'h4BCD_0001, 32'hABCD_0002); // M1 WRITE
            join 
            repeat(5)
 	     @(posedge clk);
            fork 
-           crossbar_transaction(1,0,32'h4BCD_0001, 32'hABCD_0003); // M0 WRITE
-           crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0001); // M2 WRITE
-           crossbar_transaction(1,3,32'h4BCD_0001, 32'hABCD_0000); // M3 WRITE
+             crossbar_transaction(1,0,32'h4BCD_0001, 32'hABCD_0003); // M0 WRITE
+             crossbar_transaction(1,2,32'h4BCD_0001, 32'hABCD_0001); // M2 WRITE
+             crossbar_transaction(1,3,32'h4BCD_0001, 32'hABCD_0000); // M3 WRITE
            join 
         end
 
@@ -277,7 +276,7 @@ module crossbar_testbench();
          begin
 	 @(posedge clk);
 	 case(channel_num)
-	  0:begin
+	   0:begin
 	        master_0_req = 1;
 	        master_0_cmd = cmd;
 	        master_0_addr = addr;
@@ -289,7 +288,7 @@ module crossbar_testbench();
 		  while(!master_0_resp)
 		   @(posedge clk);
 	  end
-	  1:begin
+	    1:begin
 		master_1_req = 1;
 		master_1_cmd = cmd;
 		master_1_addr = addr;
@@ -301,7 +300,7 @@ module crossbar_testbench();
 		  while(!master_1_resp)
 		   @(posedge clk);
 	  end
-	  2:begin
+	    2:begin
 		master_2_req = 1;
 		master_2_cmd = cmd;
 		master_2_addr = addr;
@@ -313,7 +312,7 @@ module crossbar_testbench();
 		  while(!master_2_resp)
 		   @(posedge clk);
 	  end
-	  3:begin
+	    3:begin
 		master_3_req = 1;
 		master_3_cmd = cmd;
 		master_3_addr = addr;
@@ -347,42 +346,36 @@ module crossbar_testbench();
 	reg [31:0] mem [1023:0];
 	
 	always @(posedge clk) begin
-          if (reset) 
-          begin
+          if (reset) begin
             ack <= 0;
           end 
-          else if (req) 
-           begin
+	  else if (req) begin
             ack <= 1;
-           end 
-           else 
+          end 
+          else begin
+            ack <= 0;
+          end
             begin
-             ack <= 0;
-            end
-             begin
-             if (ack)
+              if (ack)
               ack <= 0;
-             end
-        end
+            end
+         end
 
 	always @(posedge clk) begin
-          if (reset)
-	  begin
+          if (reset) begin
 	    resp <= 0;
 	    rdata <= 0;
 	  end
-	  else if (req && ack)
-	  begin
+	  else if (req && ack) begin
 	    if (cmd)
 	      mem[addr & 'h000003ff] <= wdata;
-	    else
-	    begin
+	    else begin
 	      resp <= 1;
 	      rdata <= mem[addr & 'h000003ff];
 	    end
-	 end
-	if (resp)
-	  resp <= 0;
+	  end
+	   if (resp)
+	     resp <= 0;
 	end
 
  endmodule
