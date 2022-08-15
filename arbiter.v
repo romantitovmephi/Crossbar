@@ -44,29 +44,29 @@ module arbiter (
           begin 
 
        // ARBITRATION LOGIC. GRANT SIGNALS DATAFLOW MODELLING
-       lgnt0 <= (~comreq & ~mask1 & ~mask0 & ~req3 & ~req2 & ~req1 & req0)     
-              | (~comreq & ~mask1 &  mask0 & ~req3 & ~req2 &  req0)             
-              | (~comreq &  mask1 & ~mask0 & ~req3 &  req0)                     
-              | (~comreq &  mask1 &  mask0 & req0)                              
-              | ( comreq &  lgnt0);
+            lgnt0 <= (~comreq & ~mask1 & ~mask0 & ~req3 & ~req2 & ~req1 & req0)     
+                   | (~comreq & ~mask1 &  mask0 & ~req3 & ~req2 &  req0)             
+                   | (~comreq &  mask1 & ~mask0 & ~req3 &  req0)                     
+                   | (~comreq &  mask1 &  mask0 & req0)                              
+                   | ( comreq &  lgnt0);
       
-       lgnt1 <= (~comreq & ~mask1 & ~mask0 &  req1)
-              | (~comreq & ~mask1 &  mask0 & ~req3 & ~req2 &  req1 & ~req0)
-              | (~comreq &  mask1 & ~mask0 & ~req3 &  req1 & ~req0)
-              | (~comreq &  mask1 &  mask0 &  req1 & ~req0)
-              | ( comreq &  lgnt1);
+            lgnt1 <= (~comreq & ~mask1 & ~mask0 &  req1)
+                   | (~comreq & ~mask1 &  mask0 & ~req3 & ~req2 &  req1 & ~req0)
+                   | (~comreq &  mask1 & ~mask0 & ~req3 &  req1 & ~req0)
+                   | (~comreq &  mask1 &  mask0 &  req1 & ~req0)
+                   | ( comreq &  lgnt1);
       
-       lgnt2 <= (~comreq & ~mask1 & ~mask0 &  req2 & ~req1)
-              | (~comreq & ~mask1 &  mask0 &  req2)
-              | (~comreq &  mask1 & ~mask0 & ~req3 &  req2 & ~req1 & ~req0)
-              | (~comreq &  mask1 &  mask0 &  req2 & ~req1 & ~req0)
-              | ( comreq &  lgnt2);
+            lgnt2 <= (~comreq & ~mask1 & ~mask0 &  req2 & ~req1)
+                   | (~comreq & ~mask1 &  mask0 &  req2)
+                   | (~comreq &  mask1 & ~mask0 & ~req3 &  req2 & ~req1 & ~req0)
+                   | (~comreq &  mask1 &  mask0 &  req2 & ~req1 & ~req0)
+                   | ( comreq &  lgnt2);
       
-       lgnt3 <= (~comreq & ~mask1 & ~mask0 & req3  & ~req2 & ~req1)
-              | (~comreq & ~mask1 &  mask0 & req3  & ~req2)
-              | (~comreq &  mask1 & ~mask0 & req3)
-              | (~comreq &  mask1 &  mask0 & req3  & ~req2 & ~req1 & ~req0)
-              | ( comreq &  lgnt3);
+            lgnt3 <= (~comreq & ~mask1 & ~mask0 & req3  & ~req2 & ~req1)
+                   | (~comreq & ~mask1 &  mask0 & req3  & ~req2)
+                   | (~comreq &  mask1 & ~mask0 & req3)
+                   | (~comreq &  mask1 &  mask0 & req3  & ~req2 & ~req1 & ~req0)
+                   | ( comreq &  lgnt3);
 
 	  end 
 
@@ -75,7 +75,7 @@ module arbiter (
      
         // NEW MASK VALUE
 	always @ (posedge clk) begin                                                                       
-        enmask <= (beg & ~enmask);                            
+          enmask <= (beg & ~enmask);                            
 	end 
 
 	// COMREQ LOGIC (BUS STATUS) 0 - FREE, 1 - BUSY
