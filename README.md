@@ -6,6 +6,8 @@
 
 `arbiter.v` — циклический арбитр (round-robin)
 
+`run.do` —  файл для быстрого запуска в Modelsim
+
 ## Testbench
 
 `crossbar_testbench.v` — тестовый модуль
