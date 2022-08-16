@@ -277,56 +277,56 @@ module crossbar_testbench();
 	 @(posedge clk);
 	 case(channel_num)
 	   0:begin
-	        master_0_req = 1;
-	        master_0_cmd = cmd;
-	        master_0_addr = addr;
-		master_0_wdata = wdata;
-		while(!master_0_ack)
-		  @(posedge clk);
-		master_0_req = 0;
-		if(!cmd)
-		  while(!master_0_resp)
+	       master_0_req = 1;
+	       master_0_cmd = cmd;
+	       master_0_addr = addr;
+	       master_0_wdata = wdata;
+	       while(!master_0_ack)
+		 @(posedge clk);
+	       master_0_req = 0;
+	       if(!cmd)
+	         while(!master_0_resp)
+		   @(posedge clk);
+	   end
+	   1:begin
+	       master_1_req = 1;
+	       master_1_cmd = cmd;
+	       master_1_addr = addr;
+	       master_1_wdata = wdata;
+	       while(!master_1_ack)
+		 @(posedge clk);
+	       master_1_req = 0;
+	       if(!cmd)
+		 while(!master_1_resp)
+		   @(posedge clk);
+	   end
+	   2:begin
+	       master_2_req = 1;
+	       master_2_cmd = cmd;
+	       master_2_addr = addr;
+	       master_2_wdata = wdata;
+	       while(!master_2_ack)
+		 @(posedge clk);
+	       master_2_req = 0;
+	       if(!cmd)
+		 while(!master_2_resp)
+		   @(posedge clk);
+	   end
+	   3:begin
+	       master_3_req = 1;
+	       master_3_cmd = cmd;
+	       master_3_addr = addr;
+	       master_3_wdata = wdata;
+	       while(!master_3_ack)
+		 @(posedge clk);
+	       master_3_req = 0;
+	       if(!cmd)
+		 while(!master_3_resp)
 		   @(posedge clk);
 	  end
-	    1:begin
-		master_1_req = 1;
-		master_1_cmd = cmd;
-		master_1_addr = addr;
-		master_1_wdata = wdata;
-		while(!master_1_ack)
-		  @(posedge clk);
-		master_1_req = 0;
-		if(!cmd)
-		  while(!master_1_resp)
-		   @(posedge clk);
-	  end
-	    2:begin
-		master_2_req = 1;
-		master_2_cmd = cmd;
-		master_2_addr = addr;
-		master_2_wdata = wdata;
-		while(!master_2_ack)
-		  @(posedge clk);
-		master_2_req = 0;
-		if(!cmd)
-		  while(!master_2_resp)
-		   @(posedge clk);
-	  end
-	    3:begin
-		master_3_req = 1;
-		master_3_cmd = cmd;
-		master_3_addr = addr;
-		master_3_wdata = wdata;
-		while(!master_3_ack)
-		  @(posedge clk);
-		master_3_req = 0;
-		if(!cmd)
-		  while(!master_3_resp)
-		   @(posedge clk);
-	 end
-	 endcase
-         end
-        endtask
+	endcase
+        end
+      endtask
 
  endmodule
 
