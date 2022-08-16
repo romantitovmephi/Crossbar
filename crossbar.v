@@ -79,31 +79,31 @@ module crossbar (
 
 	// ARBITERS
 	arbiter arb(
-		.clk(clk),
-		.reset(reset),
+	  .clk(clk),
+	  .reset(reset),
 		
-		.req0(master_0_req),
-		.req1(master_1_req),
-		.req2(master_2_req),
-		.req3(master_3_req),
+	  .req0(master_0_req),
+	  .req1(master_1_req),
+	  .req2(master_2_req),
+	  .req3(master_3_req),
 		
-		.gnt0(master[0]),
-		.gnt1(master[1]),
-		.gnt2(master[2]),
-		.gnt3(master[3])
+	  .gnt0(master[0]),
+	  .gnt1(master[1]),
+	  .gnt2(master[2]),
+	  .gnt3(master[3])
 	);   
 	
         // MASTERS LOGIC
 	always @(posedge clk) begin
-		if (reset)
-			master_read <= 0;  
-		else if (slave_resp)
-			master_read <= 0;
-		else if (master)
-			master_read <= (master[0] && !master_0_cmd) ? 4'b0001 :
-				       (master[1] && !master_1_cmd) ? 4'b0010 :
-				       (master[2] && !master_2_cmd) ? 4'b0100 : 
-				       (master[3] && !master_3_cmd) ? 4'b1000 : 4'b0000;
+	  if (reset)
+	    master_read <= 0;  
+	  else if (slave_resp)
+	    master_read <= 0;
+	  else if (master)
+	    master_read <= (master[0] && !master_0_cmd) ? 4'b0001 :
+			   (master[1] && !master_1_cmd) ? 4'b0010 :
+			   (master[2] && !master_2_cmd) ? 4'b0100 : 
+			   (master[3] && !master_3_cmd) ? 4'b1000 : 4'b0000;
 	end    
 
 	assign master_0_rdata = (master_0_resp) ?
