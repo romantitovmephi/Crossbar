@@ -25,6 +25,11 @@ ___
 
 ## [Структурная частичная схема](https://github.com/romantitovmephi/Crossbar/blob/main/docs/scheme.jpg)
 
+___
+
+## Использование
+
+Для запуска в Modelsim можно использовать файл run.do. В нем достаточно указать путь к файлам crossbar.v, arbiter.v, crossbar_testbench.v. Затем в Modelsim в окне Transcript выполнить: do "filepath"/run.do указав путь к файлу run.do.
 
 
 
