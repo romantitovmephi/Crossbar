@@ -180,7 +180,6 @@ module crossbar (
 		       (master == 4'b0100) ? master_2_cmd:
 		       (master == 4'b1000) ? master_3_cmd: 1'b0 : 1'b0;
 
-
 	assign slave_0_wdata = (slave_0_req) ?
 		         (master == 4'b0001) ? master_0_wdata:
 		         (master == 4'b0010) ? master_1_wdata:
